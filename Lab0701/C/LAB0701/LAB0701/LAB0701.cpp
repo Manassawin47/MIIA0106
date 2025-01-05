@@ -3,28 +3,52 @@
 
 #include <iostream>
 using namespace std;
+// ฟังก์ชันสำหรับการสลับค่าภายในอาร์เรย์
+void swap(int* a, int* b) {
+    int temp = *a;
+    *a = *b;
+    *b = temp;
+}
+// ฟังก์ชันสำหรับการเรียงลำดับโดยใช้ Bubble Sort
+void bubbleSort(int* arr, int size) {
+    for (int i = 0; i < size - 1; ++i) {
 
+        for (int j = 0; j < size - i - 1; ++j) {
+            // ใช้ pointer เพื่อเปรียบเทียบและสลับค่า
+            if (*(arr + j) > *(arr + j + 1)) {
+                swap((arr + j), (arr + j + 1));
+            }
+
+        }
+
+        cout << "----------------------\n";
+        cout << "Loop. :" << (i + 1) << "\n";
+        for (int ii = 0; ii < size; ++ii) {
+            cout << *(arr + ii) << " ";
+        }
+        cout << endl;
+    }
+}
 int main() {
-    int x = 10;
-    int* ptr = &x; // เก็บ address ของ x
 
-    cout << "ค่าของ x: " << x << endl;           // แสดงค่าของ x
-    cout << "ตำแหน่งของ x: " << &x << endl;    // แสดง address ของ x
-    cout << "ค่าผ่าน ptr: " << *ptr << endl;   // เข้าถึงค่าผ่าน ptr
-    cout << "ตำแหน่งใน ptr: " << ptr << endl;  // แสดง address ที่ ptr เก็บไว้
-
-
-    int y = 20;
-    ptr = &y; // เก็บ address ของ y
-
-    cout << "ค่าของ y: " << y << endl;           // แสดงค่าของ y
-    cout << "ตำแหน่งของ y: " << &y << endl;    // แสดง address ของ y
-    cout << "ค่าผ่าน ptr: " << *ptr << endl;   // เข้าถึงค่าผ่าน ptr
-    cout << "ตำแหน่งใน ptr: " << ptr << endl;  // แสดง address ที่ ptr เก็บไว้
-
+    // กำหนดอาร์เรย์ตัวอย่าง
+    int arr[] = { 64, 34, 25, 12, 22, 11, 90
+    };
+    int size = sizeof(arr) / sizeof(arr[0]);
+    cout << "before: \n";
+    for (int i = 0; i < size; ++i) {
+        cout << *(arr + i) << " ";
+    }
+    cout << endl;
+    // เรียกใช้ฟังก์ชันเรียงลำดับ
+    bubbleSort(arr, size);
+    cout << "\n------ after----------: \n";
+    for (int i = 0; i < size; ++i) {
+        cout << *(arr + i) << " ";
+    }
+    cout << endl;
     return 0;
 }
-
 
 
 // Run program: Ctrl + F5 or Debug > Start Without Debugging menu
