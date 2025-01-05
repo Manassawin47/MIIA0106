@@ -13,8 +13,18 @@ int main() {
     cout << "ค่าผ่าน ptr: " << *ptr << endl;   // เข้าถึงค่าผ่าน ptr
     cout << "ตำแหน่งใน ptr: " << ptr << endl;  // แสดง address ที่ ptr เก็บไว้
 
+
+    int y = 20;
+    ptr = &y; // เก็บ address ของ y
+
+    cout << "ค่าของ y: " << y << endl;           // แสดงค่าของ y
+    cout << "ตำแหน่งของ y: " << &y << endl;    // แสดง address ของ y
+    cout << "ค่าผ่าน ptr: " << *ptr << endl;   // เข้าถึงค่าผ่าน ptr
+    cout << "ตำแหน่งใน ptr: " << ptr << endl;  // แสดง address ที่ ptr เก็บไว้
+
     return 0;
 }
+
 
 
 // Run program: Ctrl + F5 or Debug > Start Without Debugging menu
